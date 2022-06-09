@@ -1,0 +1,11 @@
+:root {
+    // --- COLORS ---\\
+    --primary-color: #fff;
+    --secondary-color: red;
+
+    // --- DEBUG --- \\
+    body {
+        border: 1px solid var(--secondary-color);
+        background-color: goldenrod;
+    }
+}
