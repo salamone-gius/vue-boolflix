@@ -1,6 +1,6 @@
 <template>
     <section class="search container">
-        <SearchBar :inputPlaceholder="searchbarInfo.placeholder" :buttonText="searchbarInfo.button"/>
+        <SearchBar @searching="searchSomething" :inputPlaceholder="searchbarInfo.placeholder" :buttonText="searchbarInfo.button"/>
     </section>
 </template>
 
@@ -20,6 +20,12 @@ export default {
                 placeholder: "Search movie, tv series and more",
                 button: "Search",
             }
+        }
+    },
+
+    methods: {
+        searchSomething(searchThis) {
+            console.log(searchThis);
         }
     }
 }
