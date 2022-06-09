@@ -11,7 +11,7 @@
                 <ul>
                     <li>Titolo originale: {{movie.original_title}}</li>
                     <li>Lingua: {{movie.original_language}}</li>
-                    <li>Voto: {{movie.vote_average}}</li>
+                    <li>Voto: {{movie.popularity}}</li>
                 </ul>
             </li>
         </ul>
