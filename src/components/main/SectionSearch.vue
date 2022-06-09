@@ -5,9 +5,15 @@
             <input v-model="searchText" placeholder="Search" type="text" class="form-control" aria-label="Search" aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
         </form>
-
         <ul>
-            <li v-for="movie in movies" :key="movie.id">{{movie.title}}</li>
+            <li v-for="movie in movies" :key="movie.id">
+                <h3>{{movie.title}}</h3>
+                <ul>
+                    <li>Titolo originale: {{movie.original_title}}</li>
+                    <li>Lingua: {{movie.original_language}}</li>
+                    <li>Voto: {{movie.vote_average}}</li>
+                </ul>
+            </li>
         </ul>
     </section>
 </template>
