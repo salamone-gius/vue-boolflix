@@ -1,6 +1,6 @@
 <template>
     <section class="search container">
-        <SearchBar/>
+        <SearchBar :inputPlaceholder="searchbarInfo.placeholder" :buttonText="searchbarInfo.button"/>
     </section>
 </template>
 
@@ -12,6 +12,15 @@ export default {
 
     components: {
         SearchBar,
+    },
+
+    data() {
+        return {
+            searchbarInfo: {
+                placeholder: "Search movie, tv series and more",
+                button: "Search",
+            }
+        }
     }
 }
 </script>
