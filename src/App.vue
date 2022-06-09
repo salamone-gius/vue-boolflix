@@ -20,4 +20,5 @@ export default {
 
 <style lang="scss">
 @import './assets/style/global.scss';
+@import'~bootstrap/dist/css/bootstrap.css';
 </style>
