@@ -14,8 +14,16 @@
 </template>
 
 <script>
+import globalObject from '../../shared/dataShared';
+
 export default {
     name: 'SectionSearch',
+
+    data() {
+        return {
+            globalObject,
+        }
+    }
 }
 </script>
 

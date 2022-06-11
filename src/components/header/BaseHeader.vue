@@ -7,8 +7,6 @@
 </template>
 
 <script>
-// import axios from 'axios';
-import dataShared from '../../shared/dataShared';
 import SearchBar from '../commons/SearchBar.vue';
 
 export default {
@@ -24,18 +22,8 @@ export default {
         placeholder: "Search movie, tv series and more",
         button: "Search",
       },
-
-      dataShared,
-
-      movies: [],
     }
   },
-
-  methods: {
-    searchSomething() {
-
-    }
-  }
 }
 </script>
 
