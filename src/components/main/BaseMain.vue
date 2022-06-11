@@ -1,17 +1,17 @@
 <template>
   <main>
-      <SectionSearch/>
+      <SectionMovie/>
   </main>
 </template>
 
 <script>
-import SectionSearch from './SectionSearch.vue';
+import SectionMovie from './SectionMovie.vue';
 
 export default {
     name: 'BaseMain',
 
     components: {
-        SectionSearch,
+        SectionMovie,
     }
 }
 </script>

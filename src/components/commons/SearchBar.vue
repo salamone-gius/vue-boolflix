@@ -35,6 +35,7 @@ export default {
                 }
             }).then((response) => {
                 globalObject.movies = response.data.results;
+                this.searchText = "";
             }).catch((error) => {
                 console.log(error);
             })
