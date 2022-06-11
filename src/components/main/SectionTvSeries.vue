@@ -15,7 +15,7 @@
                         <p>Lingua originale: {{serie.original_language}} <img class="flag" :src="existFlag(serie.original_language) ? require(`../../assets/img/flags/${serie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"></p>
                     </li>
                     <li>
-                        <p>Voto: {{serie.vote_average}}</p>
+                        <p>Voto: {{Math.ceil(serie.vote_average)}}</p>
                     </li>
                 </ul>
             </li>
