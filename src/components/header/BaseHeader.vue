@@ -19,8 +19,8 @@ export default {
   data() {
     return {
       searchbarInfo: {
-        placeholder: "Search movie, tv series and more",
-        button: "Search",
+        placeholder: "Cerca film, serie TV e altro",
+        button: "Cerca",
       },
     }
   },

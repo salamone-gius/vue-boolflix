@@ -6,10 +6,13 @@
                 <h3>{{movie.title}}</h3>
                 <ul>
                     <li>
+                        <img class="poster" :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" :alt="movie.original_title">
+                    </li>
+                    <li>
                         <p>Titolo originale: {{movie.original_title}}</p>
                     </li>
                     <li>
-                        <p>Lingua originale: {{movie.original_language}} <img :src="existFlag(movie.original_language) ? require(`../../assets/img/flags/${movie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"></p>
+                        <p>Lingua originale: {{movie.original_language}} <img class="flag" :src="existFlag(movie.original_language) ? require(`../../assets/img/flags/${movie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"></p>
                     </li>
                     <li>
                         <p>Voto: {{movie.vote_average}}</p>
@@ -57,7 +60,7 @@ export default {
     }
 
     li{
-        img {
+        img.flag {
             width:1.875rem;
         }
     }

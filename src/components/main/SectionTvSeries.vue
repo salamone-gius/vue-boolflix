@@ -6,10 +6,13 @@
                 <h3>{{serie.name}}</h3>
                 <ul>
                     <li>
+                        <img class="poster" :src="`https://image.tmdb.org/t/p/w342${serie.poster_path}`" :alt="serie.original_name">
+                    </li>
+                    <li>
                         <p>Titolo originale: {{serie.original_name}}</p>
                     </li>
                     <li>
-                        <p>Lingua originale: {{serie.original_language}} <img :src="existFlag(serie.original_language) ? require(`../../assets/img/flags/${serie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"></p>
+                        <p>Lingua originale: {{serie.original_language}} <img class="flag" :src="existFlag(serie.original_language) ? require(`../../assets/img/flags/${serie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"></p>
                     </li>
                     <li>
                         <p>Voto: {{serie.vote_average}}</p>
@@ -57,7 +60,7 @@ export default {
     }
 
     li{
-        img {
+        img.flag {
             width:1.875rem;
         }
     }
