@@ -15,7 +15,7 @@
                         <p>Lingua originale: {{serie.original_language}} <img class="flag" :src="existFlag(serie.original_language) ? require(`../../assets/img/flags/${serie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"></p>
                     </li>
                     <li>
-                        <p>Voto: {{Math.ceil(serie.vote_average)}}</p>
+                        <p>Voto: <span v-html="starVote(serie.vote_average)"></span></p>
                     </li>
                 </ul>
             </li>
@@ -47,6 +47,15 @@ export default {
         existFlag(language) {
             return this.flags.includes(language);
         },
+
+        starVote(vote) {
+            let fullStar ="";
+            for (let i = 0; i < Math.ceil(vote / 2); i++) {
+                fullStar += '<i class="fab fa-solid fa-star"></i>';
+                
+            }
+            return fullStar;
+        }
     }
 }
 </script>
