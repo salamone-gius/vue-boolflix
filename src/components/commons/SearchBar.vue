@@ -27,14 +27,31 @@ export default {
 
     methods: {
         searchSomething() {
+            globalObject.searchTextGlobal = this.searchText;
+
             axios.get('https://api.themoviedb.org/3/search/movie', {
                 params: {
                     api_key: '88298d08dd2155d218d8febb493ff902',
                     query: this.searchText,
-                    language: 'it-IT'
+                    language: 'it-IT',
+                    include_adult: true,
                 }
             }).then((response) => {
                 globalObject.movies = response.data.results;
+                this.searchText = "";
+            }).catch((error) => {
+                console.log(error);
+            });
+
+            axios.get('https://api.themoviedb.org/3/search/tv', {
+                params: {
+                    api_key: '88298d08dd2155d218d8febb493ff902',
+                    query: this.searchText,
+                    language: 'it-IT',
+                    include_adult: true,
+                }
+            }).then((response) => {
+                globalObject.series = response.data.results;
                 this.searchText = "";
             }).catch((error) => {
                 console.log(error);

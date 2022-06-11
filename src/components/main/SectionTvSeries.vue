@@ -1,18 +1,18 @@
 <template>
-    <section class="movies container">
+    <section class="series container">
         <ul>
-            <h1>Lista film</h1>
-            <li v-for="movie in globalObject.movies" :key="movie.id">
-                <h3>{{movie.title}}</h3>
+            <h1>Lista serie TV</h1>
+            <li v-for="serie in globalObject.series" :key="serie.id">
+                <h3>{{serie.name}}</h3>
                 <ul>
                     <li>
-                        <p>Titolo originale: {{movie.original_title}}</p>
+                        <p>Titolo originale: {{serie.original_name}}</p>
                     </li>
                     <li>
-                        <p>Lingua originale: {{movie.original_language}} <img :src="existFlag(movie.original_language) ? require(`../../assets/img/flags/${movie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"></p>
+                        <p>Lingua originale: {{serie.original_language}} <img :src="existFlag(serie.original_language) ? require(`../../assets/img/flags/${serie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"></p>
                     </li>
                     <li>
-                        <p>Voto: {{movie.vote_average}}</p>
+                        <p>Voto: {{serie.vote_average}}</p>
                     </li>
                 </ul>
             </li>
@@ -24,7 +24,7 @@
 import globalObject from '../../shared/dataShared';
 
 export default {
-    name: 'SectionMovie',
+    name: 'SectionTvSeries',
 
     data() {
         return {
@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.movies.container {
+.series.container {
     border: 2px solid yellow;
 
     h1 {
