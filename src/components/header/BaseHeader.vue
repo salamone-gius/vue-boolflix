@@ -1,34 +1,41 @@
 <template>
   <header>
     <div class="container base-header">
-      <SearchBar v-model="searchText" :inputPlaceholder="searchbarInfo.placeholder" :buttonText="searchbarInfo.button"/>
+      <SearchBar :inputPlaceholder="searchbarInfo.placeholder" :buttonText="searchbarInfo.button"/>
     </div>
   </header>
 </template>
 
 <script>
 // import axios from 'axios';
+import dataShared from '../../shared/dataShared';
 import SearchBar from '../commons/SearchBar.vue';
 
 export default {
-    name : 'BaseHeader',
+  name : 'BaseHeader',
 
-    components: {
-      SearchBar,
-    },
+  components: {
+    SearchBar,
+  },
 
-    data() {
-        return {
-            searchbarInfo: {
-                placeholder: "Search movie, tv series and more",
-                button: "Search",
-            },
+  data() {
+    return {
+      searchbarInfo: {
+        placeholder: "Search movie, tv series and more",
+        button: "Search",
+      },
 
-            searchText: "",
+      dataShared,
 
-            movies: [],
-        }
-    },
+      movies: [],
+    }
+  },
+
+  methods: {
+    searchSomething() {
+
+    }
+  }
 }
 </script>
 
