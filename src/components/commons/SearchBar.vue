@@ -7,6 +7,7 @@
 
 <script>
 import axios from 'axios';
+import globalObject from '../../shared/dataShared';
 
 export default {
     name: 'SearchBar',
@@ -20,7 +21,7 @@ export default {
         return {
             searchText: "",
 
-            movies: "",
+            globalObject,
         }
     },
 
@@ -33,9 +34,7 @@ export default {
                     language: 'it-IT'
                 }
             }).then((response) => {
-                console.log("response.data.results = ", response.data.results);
-                this.movies = response.data.results;
-                console.log("array movies = ", this.movies);
+                globalObject.movies = response.data.results;
             }).catch((error) => {
                 console.log(error);
             })
