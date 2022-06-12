@@ -1,7 +1,7 @@
 <template>
     <form class="input-group my-3" @submit.prevent="searchSomething">
         <input v-model="searchText" required :placeholder="inputPlaceholder" type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">{{buttonText}}</button>
+        <button class="btn btn-outline-danger" type="submit" id="button-addon2">{{buttonText}}</button>
     </form>
 </template>
 
@@ -38,7 +38,6 @@ export default {
                 }
             }).then((response) => {
                 globalObject.movies = response.data.results;
-                this.searchText = "";
             }).catch((error) => {
                 console.log(error);
             });
@@ -52,15 +51,15 @@ export default {
                 }
             }).then((response) => {
                 globalObject.series = response.data.results;
-                this.searchText = "";
             }).catch((error) => {
                 console.log(error);
             })
+
+            this.searchText = "";
         },
     }
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style>
 </style>

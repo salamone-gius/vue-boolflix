@@ -21,4 +21,13 @@ export default {
 <style lang="scss">
 @import './assets/style/global.scss';
 @import'~bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+  background-color: var(--quaternay-color);
+}
+
+* {
+  border: 1px solid red;
+}
 </style>

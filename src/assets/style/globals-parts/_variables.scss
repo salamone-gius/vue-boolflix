@@ -1,10 +1,11 @@
 :root {
-    // --- COLORS ---\\
+    // --- COLORS --- \\
     --primary-color: #fff;
-    --secondary-color: red;
+    --secondary-color: #dc1a28;
+    --tertiary-color: #303030;
+    --quaternay-color:#000000;
+    --quintenary-color: #d43345;
 
-    // --- DEBUG --- \\
-    body {
-        border: 1px solid var(--secondary-color);
-    }
+    // --- SPACING --- \\
+    --container-padding: 0.3rem;
 }
