@@ -1,5 +1,6 @@
 <template>
     <section class="movies container">
+        <HoverCard/>
         <ul>
             <h1>Lista film</h1>
             <li v-for="movie in globalObject.movies" :key="movie.id">
@@ -25,9 +26,14 @@
 
 <script>
 import globalObject from '../../shared/dataShared';
+import HoverCard from '../commons/HoverCard.vue';
 
 export default {
     name: 'SectionMovie',
+
+    components: {
+        HoverCard,
+    },
 
     data() {
         return {
