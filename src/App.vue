@@ -27,8 +27,4 @@ export default {
 body {
   background-color: var(--quaternary-color);
 }
-
-main * {
-  border: 1px solid red;
-}
 </style>

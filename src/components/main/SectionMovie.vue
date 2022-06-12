@@ -1,7 +1,20 @@
 <template>
     <section class="movies container">
-        <HoverCard/>
-        <ul>
+        <h1>Lista film</h1>
+        <ul class="row d-flex justify-content-between">
+            <li class="col" v-for="movie in globalObject.movies" :key="movie.id">
+                <HoverCard
+                    :poster="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
+                    :posterAlt="movie.original_title"
+                    :title="movie.title"
+                    :originalTitle="movie.original_title"
+                    :originalLanguage="movie.original_language"
+                    :vote="starVote(movie.vote_average)"
+                    :plot="movie.overview"
+                />
+            </li>
+        </ul>
+        <!-- <ul>
             <h1>Lista film</h1>
             <li v-for="movie in globalObject.movies" :key="movie.id">
                 <h3>{{movie.title}}</h3>
@@ -20,7 +33,7 @@
                     </li>
                 </ul>
             </li>
-        </ul>
+        </ul> -->
     </section>
 </template>
 
@@ -58,7 +71,6 @@ export default {
             let fullStar ="";
             for (let i = 0; i < Math.ceil(vote / 2); i++) {
                 fullStar += '<i class="fab fa-solid fa-star"></i>';
-                
             }
             return fullStar;
         }
@@ -68,10 +80,13 @@ export default {
 
 <style lang="scss" scoped>
 .movies.container {
-    border: 2px solid yellow;
 
     h1 {
         text-align: center;
+    }
+
+    ul {
+        list-style: none;
     }
 
     li{

@@ -1,21 +1,21 @@
 <template>
     <div class="hover-card">
-        <img class="card-img" src="https://via.placeholder.com/150" alt="">
+        <img class="card-img" :src="poster" :alt="posterAlt">
         <div class="hover-info">
             <h2>Titolo:
-                <span></span> 
+                <span>{{title}}</span> 
             </h2>
             <h4>Titolo originale:
-                <span></span>
+                <span>{{originalTitle}}</span>
             </h4>
             <h4>Lingua originale:
-                <span></span>
+                <span>{{originalLanguage}}</span>
             </h4>
             <h4>Voto:
-                <span></span>
+                <span>{{vote}}</span>
             </h4>
             <h4>Trama:
-                <span></span>
+                <span>{{plot}}</span>
             </h4>
         </div>
     </div>
@@ -24,24 +24,35 @@
 <script>
 export default {
     name: 'HoverCard',
+
+    props: {
+        title: String,
+        originalTitle: String,
+        originalLanguage: String,
+        vote: String,
+        plot: String,
+        poster: String,
+        posterAlt: String,
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .hover-card {
-    width: 15.4375rem;
+    min-width: 15.4375rem;
     height: 23.1875rem;
     position: relative;
     cursor: pointer;
+    margin: 1.5rem;
     
     .card-img {
         opacity: 1;
         display: block;
         width: 100%;
         height: 100%;
-        height: auto;
         transition: .6s ease;
         backface-visibility: hidden;
+        overflow-y: hidden;
     }
 
     .hover-info {
@@ -50,9 +61,10 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
-        padding: 3rem 1rem;
+        padding: 1rem;
         transition: .6s ease;
         opacity: 0;
+        overflow-y: scroll;
 
         h2, h4 {
             color: rgb(255, 255, 255);
