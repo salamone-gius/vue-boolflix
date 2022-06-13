@@ -17,7 +17,7 @@
             <h5>Voto:
                 <span>
                     <i v-for="(i, index) in starVote(vote)" :key="index" class="fab fa-solid fa-star"></i>
-                    <i v-for="(j, index) in (5 - starVote(vote))" :key="index" class="fab fa-regular fa-star"></i>
+                    <i v-for="(j, index) in (5 - starVote(vote))" :key="j[index]" class="fab fa-regular fa-star"></i>
                 </span>
             </h5>
             <h5>Trama:
@@ -58,11 +58,6 @@ export default {
         starVote(vote) {
             let quinaryVote = Math.floor(vote / 2);
             return quinaryVote;
-            // let fullStar ="";
-            // for (let i = 0; i < Math.ceil(vote / 2); i++) {
-            //     fullStar += '<i class="fab fa-solid fa-star"></i>';
-            // }
-            // return fullStar;
         }
     }
 }

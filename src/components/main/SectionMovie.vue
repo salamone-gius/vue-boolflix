@@ -17,26 +17,6 @@
                 />
             </li>
         </ul>
-        <!-- <ul>
-            <h1>Lista film</h1>
-            <li v-for="movie in globalObject.movies" :key="movie.id">
-                <h3>{{movie.title}}</h3>
-                <ul>
-                    <li>
-                        <img class="poster" :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" :alt="movie.original_title">
-                    </li>
-                    <li>
-                        <p>Titolo originale: {{movie.original_title}}</p>
-                    </li>
-                    <li>
-                        <p>Lingua originale: {{movie.original_language}} <img class="flag" :src="existFlag(movie.original_language) ? require(`../../assets/img/flags/${movie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"></p>
-                    </li>
-                    <li>
-                        <p>Voto: <span v-html="starVote(movie.vote_average)"></span></p>
-                    </li>
-                </ul>
-            </li>
-        </ul> -->
     </section>
 </template>
 
@@ -69,14 +49,6 @@ export default {
         existFlag(language) {
             return this.flags.includes(language);
         },
-
-        starVote(vote) {
-            let fullStar ="";
-            for (let i = 0; i < Math.floor(vote / 2); i++) {
-                this.fullStars = + 1;
-            }
-            return fullStar;
-        }
     }
 }
 </script>
@@ -86,6 +58,7 @@ export default {
 
     h1 {
         text-align: center;
+        color: var(--secondary-color);
     }
 
     ul {
