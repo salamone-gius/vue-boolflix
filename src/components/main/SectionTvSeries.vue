@@ -3,8 +3,8 @@
         <h1 v-if="(globalObject.displaySectionTitle === undefined)"></h1>
         <h1 v-else-if="(globalObject.displaySectionTitle === true)">Serie TV trovate cercando "{{globalObject.searchTextGlobal}}"</h1>
         <h1 v-else>La ricerca non ha prodotto risultati tra le serie TV</h1>
-        <ul class="row d-flex justify-content-between">
-            <li class="col" v-for="serie in globalObject.series" :key="serie.id">
+        <ul class="row d-flex">
+            <li class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3" v-for="serie in globalObject.series" :key="serie.id">
                 <HoverCard
                     :poster="posterShow(serie.poster_path)"
                     :posterAlt="serie.original_name"
