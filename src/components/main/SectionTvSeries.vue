@@ -12,7 +12,7 @@
                     :originalTitle="serie.original_name"
                     :originalLanguage="serie.original_language"
                     :vote="serie.vote_average"
-                    :plot="plotShow(serie.overview)"
+                    :plot="serie.overview"
                     :imageFlag="flagShow(serie.original_language)"
                 />
             </li>
@@ -51,14 +51,6 @@ export default {
                 return require('../../assets/img/no-poster-img.jpg');
             } else {
                 return `https://image.tmdb.org/t/p/w342${path}`;
-            }
-        },
-
-        plotShow(path) {
-            if (path === "") {
-                return "non disponibile";
-            } else {
-                return path;
             }
         },
 

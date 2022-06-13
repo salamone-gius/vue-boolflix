@@ -22,7 +22,8 @@
                 </span>
             </h5>
             <h5>Trama:
-                <span>{{plot}}</span>
+                <span v-if="(plot === '')">non disponibile</span>
+                <span v-else>{{plot}}</span>
             </h5>
         </div>
     </div>
