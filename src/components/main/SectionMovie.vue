@@ -1,6 +1,8 @@
 <template>
     <section class="movies container">
-        <h1>Lista film</h1>
+        <h1 v-if="(globalObject.displaySectionTitle === undefined)"></h1>
+        <h1 v-else-if="(globalObject.displaySectionTitle === true)">Film trovati cercando "{{globalObject.searchTextGlobal}}"</h1>
+        <h1 v-else>La ricerca non ha prodotto risultati tra i film</h1>
         <ul class="row d-flex justify-content-between">
             <li class="col" v-for="movie in globalObject.movies" :key="movie.id">
                 <HoverCard

@@ -7,5 +7,7 @@ export default Vue.observable(
         movies: [],
 
         series: [],
+
+        displaySectionTitle: undefined,
     }
 );

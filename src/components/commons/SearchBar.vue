@@ -37,7 +37,13 @@ export default {
                     include_adult: true,
                 }
             }).then((response) => {
+                globalObject.displaySectionTitle = undefined,
                 globalObject.movies = response.data.results;
+                if (globalObject.movies.length >= 1) {
+                    globalObject.displaySectionTitle = true;
+                } else {
+                    globalObject.displaySectionTitle = false;
+                }
             }).catch((error) => {
                 console.log(error);
             });
@@ -50,7 +56,13 @@ export default {
                     include_adult: true,
                 }
             }).then((response) => {
+                globalObject.displaySectionTitle = undefined,
                 globalObject.series = response.data.results;
+                if (globalObject.series.length >= 1) {
+                    globalObject.displaySectionTitle = true;
+                } else {
+                    globalObject.displaySectionTitle = false;
+                }
             }).catch((error) => {
                 console.log(error);
             })
