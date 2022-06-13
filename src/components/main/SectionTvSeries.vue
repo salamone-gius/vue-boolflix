@@ -6,14 +6,14 @@
         <ul class="row d-flex justify-content-between">
             <li class="col" v-for="serie in globalObject.series" :key="serie.id">
                 <HoverCard
-                    :poster="`https://image.tmdb.org/t/p/w342${serie.poster_path}`"
+                    :poster="posterShow(serie.poster_path)"
                     :posterAlt="serie.original_name"
                     :title="serie.name"
                     :originalTitle="serie.original_name"
                     :originalLanguage="serie.original_language"
                     :vote="serie.vote_average"
                     :plot="serie.overview"
-                    :imageFlag="existFlag(serie.original_language) ? require(`../../assets/img/flags/${serie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"
+                    :imageFlag="flagShow(serie.original_language)"
                 />
             </li>
         </ul>
@@ -46,9 +46,21 @@ export default {
     },
 
     methods: {
-        existFlag(language) {
-            return this.flags.includes(language);
+        flagShow(language) {
+            if (this.flags.includes(language)) {
+                return require(`../../assets/img/flags/${language}.png`);
+            } else {
+                return require(`../../assets/img/flags/no-flag.png`);
+            }
         },
+
+        posterShow(path) {
+            if (path === null) {
+                return require('../../assets/img/no-poster-img.jpg');
+            } else {
+                return `https://image.tmdb.org/t/p/w342${path}`;
+            }
+        }
     }
 }
 </script>

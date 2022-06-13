@@ -6,14 +6,14 @@
         <ul class="row d-flex justify-content-between">
             <li class="col" v-for="movie in globalObject.movies" :key="movie.id">
                 <HoverCard
-                    :poster="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
+                    :poster="posterShow(movie.poster_path)"
                     :posterAlt="movie.original_title"
                     :title="movie.title"
                     :originalTitle="movie.original_title"
                     :originalLanguage="movie.original_language"
                     :vote="movie.vote_average"
                     :plot="movie.overview"
-                    :imageFlag="existFlag(movie.original_language) ? require(`../../assets/img/flags/${movie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"
+                    :imageFlag="flagShow(movie.original_language)"
                 />
             </li>
         </ul>
@@ -46,9 +46,21 @@ export default {
     },
 
     methods: {
-        existFlag(language) {
-            return this.flags.includes(language);
+        flagShow(language) {
+            if (this.flags.includes(language)) {
+                return require(`../../assets/img/flags/${language}.png`);
+            } else {
+                return require(`../../assets/img/flags/no-flag.png`);
+            }
         },
+
+        posterShow(path) {
+            if (path === null) {
+                return require('../../assets/img/no-poster-img.jpg');
+            } else {
+                return `https://image.tmdb.org/t/p/w342${path}`;
+            }
+        }
     }
 }
 </script>
