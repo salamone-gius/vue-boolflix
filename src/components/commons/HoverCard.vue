@@ -15,7 +15,8 @@
                 </span>
             </h5>
             <h5>Voto:
-                <span>
+                <span v-if="vote === 0">non disponibile</span>
+                <span v-else>
                     <i v-for="(i, index) in starVote(vote)" :key="index" class="fab fa-solid fa-star"></i>
                     <i v-for="(j, index) in (5 - starVote(vote))" :key="j[index]" class="fab fa-regular fa-star"></i>
                 </span>

@@ -12,7 +12,7 @@
                     :originalTitle="serie.original_name"
                     :originalLanguage="serie.original_language"
                     :vote="serie.vote_average"
-                    :plot="serie.overview"
+                    :plot="plotShow(serie.overview)"
                     :imageFlag="flagShow(serie.original_language)"
                 />
             </li>
@@ -46,21 +46,30 @@ export default {
     },
 
     methods: {
-        flagShow(language) {
-            if (this.flags.includes(language)) {
-                return require(`../../assets/img/flags/${language}.png`);
-            } else {
-                return require(`../../assets/img/flags/no-flag.png`);
-            }
-        },
-
         posterShow(path) {
             if (path === null) {
                 return require('../../assets/img/no-poster-img.jpg');
             } else {
                 return `https://image.tmdb.org/t/p/w342${path}`;
             }
-        }
+        },
+
+        plotShow(path) {
+            if (path === "") {
+                return "non disponibile";
+            } else {
+                return path;
+            }
+        },
+
+        flagShow(path) {
+            if (this.flags.includes(path)) {
+                return require(`../../assets/img/flags/${path}.png`);
+            } else {
+                return require(`../../assets/img/flags/no-flag.png`);
+            }
+        },
+
     }
 }
 </script>
