@@ -2,21 +2,27 @@
     <div class="hover-card">
         <img class="card-img" :src="poster" :alt="posterAlt">
         <div class="hover-info">
-            <h2>Titolo:
+            <h3>Titolo:
                 <span>{{title}}</span> 
-            </h2>
-            <h4>Titolo originale:
+            </h3>
+            <h5>Titolo originale:
                 <span>{{originalTitle}}</span>
-            </h4>
-            <h4>Lingua originale:
-                <span>{{originalLanguage}}</span>
-            </h4>
-            <h4>Voto:
-                <span>{{vote}}</span>
-            </h4>
-            <h4>Trama:
+            </h5>
+            <h5>Lingua originale:
+                <span>
+                    {{originalLanguage}}
+                    <img class="flag" :src="imageFlag">
+                </span>
+            </h5>
+            <h5>Voto:
+                <span>
+                    <i v-for="(i, index) in starVote(vote)" :key="index" class="fab fa-solid fa-star"></i>
+                    <i v-for="(j, index) in (5 - starVote(vote))" :key="index" class="fab fa-regular fa-star"></i>
+                </span>
+            </h5>
+            <h5>Trama:
                 <span>{{plot}}</span>
-            </h4>
+            </h5>
         </div>
     </div>
 </template>
@@ -29,10 +35,35 @@ export default {
         title: String,
         originalTitle: String,
         originalLanguage: String,
-        vote: String,
+        vote: Number,
         plot: String,
         poster: String,
         posterAlt: String,
+        imageFlag: String,
+    },
+
+    data() {
+        return {
+            flags: [
+                "en",
+                "it",
+                "es",
+                "de",
+                "fr",
+            ],
+        }
+    },
+
+    methods: {
+        starVote(vote) {
+            let quinaryVote = Math.floor(vote / 2);
+            return quinaryVote;
+            // let fullStar ="";
+            // for (let i = 0; i < Math.ceil(vote / 2); i++) {
+            //     fullStar += '<i class="fab fa-solid fa-star"></i>';
+            // }
+            // return fullStar;
+        }
     }
 }
 </script>
@@ -66,11 +97,20 @@ export default {
         opacity: 0;
         overflow-y: scroll;
 
-        h2, h4 {
+        h3, h5 {
             color: rgb(255, 255, 255);
 
             span {
                 color: #b6b5b5;
+
+                img.flag {
+                    width:1.6rem;
+                }
+
+                .fa-star {
+                    color: yellow;
+                    font-size: 1.1rem;
+                }
             }
         }
     }

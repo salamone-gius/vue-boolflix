@@ -9,8 +9,9 @@
                     :title="movie.title"
                     :originalTitle="movie.original_title"
                     :originalLanguage="movie.original_language"
-                    :vote="starVote(movie.vote_average)"
+                    :vote="movie.vote_average"
                     :plot="movie.overview"
+                    :imageFlag="existFlag(movie.original_language) ? require(`../../assets/img/flags/${movie.original_language}.png`) : require(`../../assets/img/flags/no-flag.png`)"
                 />
             </li>
         </ul>
@@ -69,8 +70,8 @@ export default {
 
         starVote(vote) {
             let fullStar ="";
-            for (let i = 0; i < Math.ceil(vote / 2); i++) {
-                fullStar += '<i class="fab fa-solid fa-star"></i>';
+            for (let i = 0; i < Math.floor(vote / 2); i++) {
+                this.fullStars = + 1;
             }
             return fullStar;
         }
@@ -88,12 +89,5 @@ export default {
     ul {
         list-style: none;
     }
-
-    li{
-        img.flag {
-            width:1.875rem;
-        }
-    }
 }
-
 </style>
